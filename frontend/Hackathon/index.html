@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResQ - Emergency Response Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-shield-heart"></i> ResQ-Link
+        </div>
+        <div class="user-status">
+            <span class="dot"></span> Live
+        </div>
+    </nav>
+
+    <div class="gps-bar" id="gps-status-bar">
+        <i class="fa-solid fa-satellite-dish"></i>
+        <span id="gps-text">Locating satellites...</span>
+    </div>
+    <main class="app-container">
+        <div class="content-wrapper">
+
+            <section class="sos-section">
+                <div class="sos-wrapper">
+                    <button id="sos-btn" class="sos-button">
+                        <span>SOS</span>
+                    </button>
+                    <div class="sos-waves"></div>
+                </div>
+                <p class="sos-instruction">PRESS & HOLD FOR INSTANT HELP</p>
+            </section>
+
+            <section class="report-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fa-solid fa-triangle-exclamation"></i> Report Incident</h3>
+                    </div>
+
+                    <form id="incident-form">
+                        <label class="input-label">Select Incident Type</label>
+                        <div class="incident-grid">
+                            <input type="radio" name="type" id="acc" value="accident" checked>
+                            <label for="acc" class="grid-item">
+                                <i class="fa-solid fa-car-burst"></i> Accident
+                            </label>
+
+                            <input type="radio" name="type" id="med" value="medical">
+                            <label for="med" class="grid-item">
+                                <i class="fa-solid fa-truck-medical"></i> Medical
+                            </label>
+
+                            <input type="radio" name="type" id="fire" value="fire">
+                            <label for="fire" class="grid-item">
+                                <i class="fa-solid fa-fire"></i> Fire
+                            </label>
+
+                            <input type="radio" name="type" id="crime" value="crime">
+                            <label for="crime" class="grid-item">
+                                <i class="fa-solid fa-handcuffs"></i> Crime
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="details" class="input-label">Situation Details</label>
+                            <textarea id="details" placeholder="Describe injuries, vehicle numbers, etc..." rows="3"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="input-label">Evidence (Photo/Video)</label>
+                            <div class="file-upload-wrapper">
+                                <input type="file" id="media-upload" accept="image/*,video/*" hidden>
+                                <label for="media-upload" class="file-label">
+                                    <i class="fa-solid fa-camera"></i>
+                                    <span id="file-name">Tap to Attach Media</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            SEND REPORT <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </section>
+            <section class="status-section">
+                <div class="card">
+                    <div class="card-header">
+                        <h3><i class="fa-solid fa-clock-rotate-left"></i> My Active Reports</h3>
+                    </div>
+                    <div id="user-reports-list">
+                        <p style="color:#888; text-align:center;">No active reports.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <div id="login-overlay" class="login-overlay">
+        <div class="login-card">
+            <div class="login-header">
+                <i class="fa-solid fa-shield-heart"></i>
+                <h2>Welcome to ResQ</h2>
+                <p>Please identify yourself to proceed.</p>
+            </div>
+
+            <form id="login-form">
+                <div class="form-group">
+                    <label class="input-label">Full Name</label>
+                    <input type="text" id="inp-name" class="login-input" placeholder="e.g. Rahul Sharma" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="input-label">Mobile Number</label>
+                    <input type="tel" id="inp-phone" class="login-input" placeholder="e.g. 9876543210" pattern="[0-9]{10}" title="10 digit mobile number" required>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    ENTER PLATFORM <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
